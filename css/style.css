@@ -1,0 +1,153 @@
+/* ─── ANIME QUIZ – Global Styles ─── */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;900&display=swap');
+
+:root {
+  --bg:        #0d0d1a;
+  --surface:   #12122a;
+  --card:      #1a1a35;
+  --border:    #2e2e5a;
+  --accent:    #e040fb;   /* electric magenta */
+  --accent2:   #00e5ff;   /* cyan glow */
+  --gold:      #ffd700;
+  --success:   #00e676;
+  --danger:    #ff1744;
+  --text:      #e8e8ff;
+  --muted:     #7070aa;
+  --radius:    14px;
+  --shadow:    0 8px 32px rgba(0,0,0,0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(224,64,251,.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(0,229,255,.08) 0%, transparent 60%);
+}
+
+/* ─── NAV ─── */
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(18,18,42,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-brand {
+  font-family: 'Bangers', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.2rem; }
+.nav-links a {
+  color: var(--muted); text-decoration: none; font-weight: 600;
+  font-size: .9rem; transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent2); }
+
+/* ─── CONTAINERS ─── */
+.container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+.container-sm { max-width: 560px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-block; padding: .75rem 1.8rem;
+  border: none; border-radius: 50px; cursor: pointer;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1rem;
+  text-decoration: none; transition: all .2s; letter-spacing: .5px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #9c27b0);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(224,64,251,.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(224,64,251,.5); }
+.btn-cyan {
+  background: linear-gradient(135deg, var(--accent2), #0097a7);
+  color: #000; font-weight: 900;
+  box-shadow: 0 4px 20px rgba(0,229,255,.3);
+}
+.btn-cyan:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,229,255,.5); }
+.btn-ghost {
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-danger {
+  background: var(--danger); color: #fff;
+  box-shadow: 0 4px 16px rgba(255,23,68,.3);
+}
+.btn-sm { padding: .45rem 1.1rem; font-size: .85rem; }
+
+/* ─── FORM ─── */
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; margin-bottom: .4rem; font-weight: 700; color: var(--muted); font-size: .9rem; }
+.form-control {
+  width: 100%; padding: .75rem 1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-family: inherit; font-size: 1rem;
+  transition: border-color .2s;
+}
+.form-control:focus { outline: none; border-color: var(--accent); }
+select.form-control option { background: var(--surface); }
+
+/* ─── BADGE ─── */
+.badge {
+  display: inline-block; padding: .2rem .7rem;
+  border-radius: 50px; font-size: .75rem; font-weight: 700; letter-spacing: .5px;
+}
+.badge-accent  { background: rgba(224,64,251,.2); color: var(--accent); border: 1px solid var(--accent); }
+.badge-cyan    { background: rgba(0,229,255,.15); color: var(--accent2); border: 1px solid var(--accent2); }
+.badge-gold    { background: rgba(255,215,0,.15); color: var(--gold);    border: 1px solid var(--gold); }
+.badge-success { background: rgba(0,230,118,.15); color: var(--success); border: 1px solid var(--success); }
+.badge-danger  { background: rgba(255,23,68,.15);  color: var(--danger);  border: 1px solid var(--danger); }
+
+/* ─── ALERT ─── */
+.alert { padding: .85rem 1.2rem; border-radius: 10px; margin-bottom: 1rem; font-weight: 600; font-size: .9rem; }
+.alert-success { background: rgba(0,230,118,.12); border: 1px solid var(--success); color: var(--success); }
+.alert-danger  { background: rgba(255,23,68,.12);  border: 1px solid var(--danger);  color: var(--danger); }
+
+/* ─── HEADING ─── */
+.page-title {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px; line-height: 1.1;
+}
+
+/* ─── GLOW TEXT ─── */
+.glow {
+  text-shadow: 0 0 20px var(--accent), 0 0 40px rgba(224,64,251,.4);
+}
+.glow-cyan {
+  text-shadow: 0 0 20px var(--accent2), 0 0 40px rgba(0,229,255,.4);
+}
+
+/* ─── TABLE ─── */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: .85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.table th { font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.table tbody tr:hover { background: rgba(255,255,255,.03); }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
